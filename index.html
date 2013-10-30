@@ -38,10 +38,16 @@
         <h3>
 <a name="skylark" class="anchor" href="#skylark"><span class="octicon octicon-link"></span></a>Skylark</h3>
 
-<p>This repository provides a software stack for sketching-based NLA kernels for more general data analysis and optimization applications;
-  such tasks have significantly different input matrices and performance criteria than arise in the more traditional scientific computing
-  applications. The crucial NLA kernels to be implemented include regression and low-rank approximations of matrices, akin to the
-  Singular Vlaue Decomposition (SVD).
+<p>
+The Skylark library supplies sketching-based Numerical Linear Algebra (NLA) kernels for general statistical data analysis and optimization applications.
+
+Many tasks in machine learning and statistics ultimately end up being problems involving matrices: whether you're finding the key players in the bitcoin market, or inferring where tweets came from, or figuring out what's in sewage, you'll want to have a toolkit for least-squares and robust regression, eigenvector analysis, non-negative matrix factorization, and other matrix computations.
+
+Sketching is a way to compress matrices that preserves key matrix properties; it can be used to speed up many matrix computations. Sketching takes a given matrix A and produces a sketch matrix B that has fewer rows and/or columns than A. For a good sketch B, if we solve a problem with input B, the solution will also be pretty good for input A. For some problems, sketches can also be used to get faster ways to find high-precision solutions to the original problem.
+
+A simple example of sketching is just sampling the rows (and/or columns) of the matrix, where each row (and/or column) is equally likely to sampled. This uniform sampling is quick and easy, but doesn't always yield good sketches; however, there are sophisticated sampling methods that do yield good sketches.
+
+This project is building a sketching-based open-source software stack for NLA and its applications. 
 </p>
 
 <p>Additionally this library provides a simple distributed Python interface.</p>
