@@ -41,8 +41,11 @@
             Introduction
         </h3>
 
-<p>The Skylark library supplies sketching-based Numerical Linear Algebra (NLA)
-kernels for general statistical data analysis and optimization applications.</p>
+
+
+<p>The Sketching Linear Algebra Kernel is a library for matrix computations
+suitable for general statistical data analysis and optimization
+applications.</p>
 
 <p>Many tasks in machine learning and statistics ultimately end up being problems
 involving matrices: whether you're finding the key players in the bitcoin market,
@@ -55,19 +58,61 @@ it can be used to speed up many matrix computations. Sketching takes a given mat
 produces a sketch matrix B that has fewer rows and/or columns than A. For a good sketch B,
 if we solve a problem with input B, the solution will also be pretty good for input A.
 For some problems, sketches can also be used to get faster ways to find high-precision
-solutions to the original problem.</p>
+solutions to the original problem.  In other cases, sketches can be used to
+summarize the data by identifying the most important rows or columns.</p>
 
 <p>A simple example of sketching is just sampling the rows (and/or columns) of the matrix,
 where each row (and/or column) is equally likely to be sampled. This uniform sampling is
 quick and easy, but doesn't always yield good sketches; however, there are sophisticated
 sampling methods that do yield good sketches.</p>
 
-<p>This project is building a sketching-based open-source software stack for NLA and its
-applications.</p>
+<p>The goal of this project is to build a sketching-based open-source software
+stack for NLA and its applications, as shown:<p>
 
-<p>Additionally this library provides a simple distributed Python interface.</p>
+<style>
+    .roundtable td {
+        border-style: solid;
+        border-width: 1px;
+        text-align: center;
+        vertical-align: middle;
+    }
+</style>
+<table class="roundtable" style="width:100%;">
+    <tbody>
+        <tr>
+            <td>Matrix Completion </td>
+            <td>Nonlinear RLS,<br/>SVM, PCA </td>
+            <td>Robust Regression </td>
+            <td>Other applications
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4"><b>Python:</b>
+                Python-based data analytics scripting layer </td>
+        </tr>
+        <tr>
+            <td colspan="4"><b>PythonBinding:</b>
+                C++ to Python bindings </td>
+            </tr><tr>
+            <td colspan="4"><b>NLA:</b>
+                Numerical Linear Algebra primitives<br/>
+                (Least squares regression, low-rank approximation, randomized estimators)
+            </td>
+            </tr><tr>
+            <td colspan="4"><b>Sketch:</b>
+                Sketching kernels<br/>
+                JL, FJL, Gaussian, Sign, Sparse Embedding
+            </td>
+            </tr><tr>
+            <td colspan="4"><b>Third-Party
+                Libraries:</b><br/>
+                <tt>MPI, Elemental, BLAS, CombBLAS, FFTW, Boost</tt>
+            </td>
+        </tr>
+    </tbody>
+</table>
 
-<p>The first public release of the code is planned for May, 15 2014.</p>
+<p>The first public release of the code is planned for May 15, 2014.</p>
 
       </section>
 
